@@ -66,7 +66,7 @@ func (t *Time) Scan(src interface{}) error {
 }
 
 func (t *Time) setFromString(str string) error {
-	time, err := time.Parse(str, time.DateTime)
+	time, err := time.Parse(time.DateTime, str)
 	if err != nil {
 		return err
 	}
