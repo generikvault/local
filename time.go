@@ -83,11 +83,6 @@ func (t Time) Value() (driver.Value, error) {
 	return t.String(), nil
 }
 
-// String implements fmt.Stringer interface.
-func (t Time) String() string {
-	return t.date.Format(time.DateTime)
-}
-
 // Before returns true if l is before b.
 func (l Time) Before(b Time) bool {
 	return l.date.Before(b.date)
@@ -118,8 +113,6 @@ func (t *Time) UnmarshalJSON(data []byte) error {
 	}
 	return t.setFromString(strings.Trim(string(data), `"`))
 }
-
-
 
 // String implements fmt.Stringer interface.
 func (t Time) String() string {
