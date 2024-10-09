@@ -118,3 +118,10 @@ func (t *Time) UnmarshalJSON(data []byte) error {
 	}
 	return t.setFromString(strings.Trim(string(data), `"`))
 }
+
+
+
+// String implements fmt.Stringer interface.
+func (t Time) String() string {
+	return t.date.Format("15:04:05 02.01.2006")
+}
