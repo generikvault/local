@@ -100,6 +100,13 @@ func (l Time) AddDays(days int) Time {
 	}
 }
 
+// Add returns a new local.Date with the specified duration added to l.
+func (l Time) Add(d time.Duration) Time {
+	return Time{
+		date: l.date.Add(d),
+	}
+}
+
 // MarshalJSON implements json.Marshaler to convert Time to json serialization.
 func (t Time) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.String())
