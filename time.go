@@ -80,7 +80,7 @@ func (t *Time) setFromTime(src time.Time) {
 
 // Value implements driver.Valuer interface and returns string format of Time.
 func (t Time) Value() (driver.Value, error) {
-	return t.String(), nil
+	return t.date.Format(time.DateTime), nil
 }
 
 // Before returns true if l is before b.
