@@ -107,6 +107,11 @@ func (l Time) Add(d time.Duration) Time {
 	}
 }
 
+// Sub returns the duration between l and b.
+func (l Time) Sub(b Time) time.Duration {
+	return l.date.Sub(b.date)
+}
+
 // MarshalJSON implements json.Marshaler to convert Time to json serialization.
 func (t Time) MarshalJSON() ([]byte, error) {
 	return json.Marshal(t.String())
