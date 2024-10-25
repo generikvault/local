@@ -130,3 +130,9 @@ func (t *Time) UnmarshalJSON(data []byte) error {
 func (t Time) String() string {
 	return t.date.Format("15:04:05 02.01.2006")
 }
+
+// IsZero reports whether t represents the zero time instant,
+// January 1, year 1, 00:00:00 UTC.
+func (t Time) IsZero() bool {
+	return t.date.IsZero()
+}
