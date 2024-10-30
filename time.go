@@ -28,6 +28,15 @@ func NowTime() Time {
 	return NewTime(now.Year(), int(now.Month()), now.Day(), now.Hour(), now.Minute(), now.Second())
 }
 
+// TimeFromString returns a new local.Time from a string.
+func TimeFromString(s string) (Time, error) {
+	t, err := time.Parse(time.DateTime, s)
+	if err != nil {
+		return Time{}, err
+	}
+	return NewTime(t.Year(), int(t.Month()), t.Day(), t.Hour(), t.Minute(), t.Second()), nil
+}
+
 // GormDataType returns gorm common data type. This type is used for the field's column type.
 func (Time) GormDataType() string {
 	return "time"
