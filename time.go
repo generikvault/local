@@ -75,6 +75,10 @@ func (t *Time) Scan(src interface{}) error {
 }
 
 func (t *Time) setFromString(str string) error {
+	// hacked fix for https://github.com/go-gorm/datatypes/issues/279
+	if len(str) > 19 {
+		str = str[:19]
+	}
 	time, err := time.Parse(time.DateTime, str)
 	if err != nil {
 		return err
