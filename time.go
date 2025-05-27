@@ -141,7 +141,7 @@ func (t *Time) UnmarshalJSON(data []byte) error {
 
 // String implements fmt.Stringer interface.
 func (t Time) String() string {
-	return t.date.Format("15:04:05 02.01.2006")
+	return t.date.Format("02.01.2006 15:04:05")
 }
 
 // IsZero reports whether t represents the zero time instant,
